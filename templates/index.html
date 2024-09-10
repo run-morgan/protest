@@ -1,14 +1,24 @@
 <!DOCTYPE html>
-<hrml lang="ko">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hello Flask</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
-    </head>
-    <body>
-        <h1>Hello Flask</h1>
-        <p>이것은 Flask로 만든 간단한 웹 페이지 입니다.</p>
-    </body>
-
-</hrml>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Hello Flask</title>   
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="{{ 'mobile' if is_mobile else 'desktop' }} {{ 'android' if is_android else '' }} {{ 'ios' if is_ios else '' }}">
+    <div class="container">
+        <h1 id="head">Hello Flask</h1>
+        <p>이것은 Flask로 만든 간단한 웹 페이지입니다.</p>
+        {% if is_mobile %}
+            {% if is_android %}
+            <p class="mobile-message android-message">안드로이드에서 접속하셨네요!</p>
+            {% elif is_ios %}
+            <p class="mobile-message ios-message">iOS 기기에서 접속하셨네요!</p>
+            {% else %}
+            <p class="mobile-message">모바일 기기에서 접속하셨네요!</p>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>

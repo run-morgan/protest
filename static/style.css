@@ -1,19 +1,122 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;  /* block, inline, inline-block, table, table-cell */
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+* {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
 }
 
-h1 {
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+#head {
     color: #333;
     text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
 }
 
 p {
     color: #666;
     text-align: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* 모바일 공통 스타일 */
+body.mobile .container {
+    padding: 15px;
+}
+
+body.mobile #head {
+    font-size: 20px;
+}
+
+body.mobile p {
+    font-size: 14px;
+}
+
+/* 안드로이드 기기 스타일 */
+body.android {
+    background-color: #e0f7fa;
+}
+
+body.android .container {
+    background-color: #b2ebf2;
+    border: 2px solid #4dd0e1;
+}
+
+body.android #head {
+    color: #00838f;
+}
+
+body.android p {
+    color: #006064;
+}
+
+.android-message {
+    background-color: #4dd0e1;
+    color: white !important;
+}
+
+/* iOS 기기 스타일 */
+body.ios {
+    background-color: #f0f4f8;
+}
+
+body.ios .container {
+    background-color: #ffffff;
+    border: 2px solid #007aff;
+}
+
+body.ios #head {
+    color: #007aff;
+}
+
+body.ios p {
+    color: #333333;
+}
+
+.ios-message {
+    background-color: #007aff;
+    color: white !important;
+}
+
+.mobile-message {
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    #head {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
 }
